@@ -44,6 +44,15 @@ namespace RomanNumerals.Tests
             _numbersToRomanNumerals.UnderHundredCalculator(10).Should().Be("X");
             _numbersToRomanNumerals.UnderHundredCalculator(20).Should().Be("XX");
         }
+
+        [Test]
+        public void Convert_Eleven_Sixteen_TwentyThree_FortyTwo()
+        {
+            _numbersToRomanNumerals.UnderHundredCalculator(11).Should().Be("XI");
+            _numbersToRomanNumerals.UnderHundredCalculator(16).Should().Be("XVI");
+            _numbersToRomanNumerals.UnderHundredCalculator(23).Should().Be("XXIII");
+            _numbersToRomanNumerals.UnderHundredCalculator(42).Should().Be("XXXXII");
+        }
     }
 
 }

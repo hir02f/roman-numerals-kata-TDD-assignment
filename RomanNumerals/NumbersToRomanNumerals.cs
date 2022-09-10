@@ -8,14 +8,17 @@ namespace RomanNumerals
 {
     public class NumbersToRomanNumerals
     {
+        // Internal data
         private const char ROMAN_I = 'I';
+        private const char ROMAN_V = 'V';
         private const char ROMAN_X = 'X';
 
         private const string ROMAN_IV = "IV";
-        private const string ROMAN_V = "V";
         private const string ROMAN_IX = "IX";
 
         private const int FIVE = 5;
+        private const int TEN = 10;
+
         public NumbersToRomanNumerals()
         {
 
@@ -28,28 +31,31 @@ namespace RomanNumerals
 
         public string UnderHundredCalculator(int inputNumber) 
         {
-            int remainder = inputNumber % 10;
-            int quotient = inputNumber / 10;
+            if (inputNumber == 0)
+            {
+                throw new ArgumentException("Romans do not have zeroes!");
 
-            if (remainder == 4) // 4,14,24,34 etc
-            {
-                return ReturnRomanNumeral(ROMAN_X, quotient) + ROMAN_IV;
             }
-            else if (remainder == 9) // 9,19,29,39 etc
+
+            // Breaking down the input number by 10, then 5
+            int quotient_10 = inputNumber / TEN;
+            int remainder_10 = inputNumber % TEN;
+            int quotient_5 = remainder_10 / 5;
+            int remainder_5 = remainder_10 % FIVE;
+
+            string partialoutput = ReturnRomanNumeral(ROMAN_X, quotient_10) + ReturnRomanNumeral(ROMAN_V, quotient_5);
+
+            if (remainder_5 == 4)
             {
-                return ReturnRomanNumeral(ROMAN_X, quotient) + ROMAN_IX;
+                return partialoutput + ROMAN_IV;
             }
-            else if (remainder == 5) // 5,15,25 etc
+            else if (remainder_5 == 9)
             {
-                return ReturnRomanNumeral(ROMAN_X, quotient) + ROMAN_V;                
-            }
-            else if (remainder == 0)
-            {
-                return ReturnRomanNumeral(ROMAN_X, quotient);
+                return partialoutput + ROMAN_IX;
             }
             else
             {
-                return ReturnRomanNumeral(ROMAN_I, inputNumber);
+                return partialoutput + ReturnRomanNumeral(ROMAN_I, remainder_5);
             }
         }
     }
