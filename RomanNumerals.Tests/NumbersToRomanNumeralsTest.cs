@@ -17,9 +17,11 @@ namespace RomanNumerals.Tests
         }
 
         [Test]
-        public void Test1()
+        public void Convert_Under_Four()
         {
-            _numbersToRomanNumerals.UnderTenCalculator().Should().Be("I");
+            _numbersToRomanNumerals.UnderTenCalculator(1).Should().Be("I");
+            _numbersToRomanNumerals.UnderTenCalculator(2).Should().Be("II");
+            _numbersToRomanNumerals.UnderTenCalculator(3).Should().Be("III");
         }
     }
 
