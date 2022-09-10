@@ -19,9 +19,30 @@ namespace RomanNumerals.Tests
         [Test]
         public void Convert_Under_Four()
         {
-            _numbersToRomanNumerals.UnderTenCalculator(1).Should().Be("I");
-            _numbersToRomanNumerals.UnderTenCalculator(2).Should().Be("II");
-            _numbersToRomanNumerals.UnderTenCalculator(3).Should().Be("III");
+            _numbersToRomanNumerals.UnderHundredCalculator(1).Should().Be("I");
+            _numbersToRomanNumerals.UnderHundredCalculator(2).Should().Be("II");
+            _numbersToRomanNumerals.UnderHundredCalculator(3).Should().Be("III");
+        }
+
+        [Test]
+        public void Convert_Fourteen_And_ThirtyFour()
+        {
+            _numbersToRomanNumerals.UnderHundredCalculator(14).Should().Be("XIV");
+            _numbersToRomanNumerals.UnderHundredCalculator(34).Should().Be("XXXIV");
+        }
+
+        [Test]
+        public void Convert_Five_And_FortyFive()
+        {
+            _numbersToRomanNumerals.UnderHundredCalculator(5).Should().Be("V");
+            _numbersToRomanNumerals.UnderHundredCalculator(45).Should().Be("XXXXV");
+        }
+
+        [Test]
+        public void Convert_Ten_And_Twenty()
+        {
+            _numbersToRomanNumerals.UnderHundredCalculator(10).Should().Be("X");
+            _numbersToRomanNumerals.UnderHundredCalculator(20).Should().Be("XX");
         }
     }
 
