@@ -18,9 +18,8 @@ namespace RomanNumerals
         }
 
         public string UnderTenCalculator(int inputNumber)
-        {
-            int remainder = inputNumber % FIVE;          
-            return new string(ROMAN_I,remainder);
+        {      
+            return new string(ROMAN_I,inputNumber);
         }
     }
 }
