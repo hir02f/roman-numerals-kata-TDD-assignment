@@ -12,12 +12,14 @@ namespace RomanNumerals
         private const char ROMAN_I = 'I';
         private const char ROMAN_V = 'V';
         private const char ROMAN_X = 'X';
+        private const char ROMAN_L = 'L';
 
         private const string ROMAN_IV = "IV";
         private const string ROMAN_IX = "IX";
 
         private const int FIVE = 5;
         private const int TEN = 10;
+        private const int FIFTY = 50;
 
         public NumbersToRomanNumerals()
         {
