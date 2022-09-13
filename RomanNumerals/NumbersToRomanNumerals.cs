@@ -33,10 +33,14 @@ namespace RomanNumerals
 
         public string UnderHundredCalculator(int inputNumber) 
         {
-            if (inputNumber == 0)
-            {
-                throw new ArgumentException("Romans do not have zeroes!");
+            if (inputNumber == 0) 
+            { 
+                throw new ArgumentException("Romans do not have zeroes!"); 
+            }
 
+            if (inputNumber < 0)
+            {
+                throw new ArgumentException("Romans do not have negative numbers!");
             }
 
             // Breaking down the input number by 10, then 5

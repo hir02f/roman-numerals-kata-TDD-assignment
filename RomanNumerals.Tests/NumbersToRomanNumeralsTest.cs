@@ -10,12 +10,14 @@ namespace RomanNumerals.Tests
     public class NumbersToRomanNumeralsTest
     {
         private NumbersToRomanNumerals _numbersToRomanNumerals;
+
         [SetUp]
         public void Setup()
         {
             _numbersToRomanNumerals = new NumbersToRomanNumerals();
         }
-        
+
+
         [Test]
         public void Exception_For_Zero()
         {
@@ -24,6 +26,13 @@ namespace RomanNumerals.Tests
         }
 
         [Test]
+        public void Exception_For_Negative_Numbers()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => _numbersToRomanNumerals.UnderHundredCalculator(-2));
+            Assert.That(ex.Message, Is.EqualTo("Romans do not have negative numbers!"));
+        }
+        [Test]
+
         public void Convert_Under_Four()
         {
             _numbersToRomanNumerals.UnderHundredCalculator(1).Should().Be("I");
@@ -60,6 +69,8 @@ namespace RomanNumerals.Tests
             _numbersToRomanNumerals.UnderHundredCalculator(23).Should().Be("XXIII");
             _numbersToRomanNumerals.UnderHundredCalculator(32).Should().Be("XXXII"); 
         }
+
+        // Need tests for 40-49
 
         [Test]
         public void Convert_Any_Number_From_50_To_89() // Now 50, 61, 73, 84, 89
